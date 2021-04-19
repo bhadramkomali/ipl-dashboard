@@ -16,21 +16,21 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
         match.setPlayerOfMatch(matchInput.getPlayer_of_match());
         match.setVenue(matchInput.getVenue());
         String firstInnigsTeam, secondInningsTeam;
-        if("bat".equals(matchInput.getToss_decision())) {
+        if ("bat".equals(matchInput.getToss_decision())) {
             firstInnigsTeam = matchInput.getToss_winner();
-            secondInningsTeam = matchInput.getToss_winner().equals(matchInput.getTeam2()) ? 
-                                matchInput.getTeam2() : matchInput.getTeam1();
+            secondInningsTeam = matchInput.getToss_winner().equals(matchInput.getTeam2()) ? matchInput.getTeam2()
+                    : matchInput.getTeam1();
         } else {
             secondInningsTeam = matchInput.getToss_winner();
-            firstInnigsTeam = matchInput.getToss_winner().equals(matchInput.getTeam1()) ?
-                            matchInput.getTeam1() : matchInput.getTeam2();
+            firstInnigsTeam = matchInput.getToss_winner().equals(matchInput.getTeam1()) ? matchInput.getTeam1()
+                    : matchInput.getTeam2();
         }
         match.setResult(matchInput.getResult());
         match.setResultMargin(matchInput.getResult_margin());
         match.setTeam1(firstInnigsTeam);
         match.setTeam2(secondInningsTeam);
         match.setTossDecision(matchInput.getToss_decision());
-        match.setTossWinner(matchInput.getToss_winner();
+        match.setTossWinner(matchInput.getToss_winner());
         match.setUmpire1(matchInput.getUmpire1());
         match.setUmpire2(matchInput.getUmpire2());
         return match;
